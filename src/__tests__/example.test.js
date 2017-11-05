@@ -47,6 +47,21 @@ describe('addFullNameToComments', () => {
       expect(comment.author.fullName).toBe(`${comment.author.first} ${comment.author.second}`)
     }
   })
+
+  it('should work with only one name present', () => {
+    const comments = [
+      {
+        author: {
+          first: 'Peter',
+          second: ''
+        }
+      }
+    ]
+
+    const commentsWithFullName = addFullNameToComments(comments)
+
+    expect(commentsWithFullName[0].author.fullName).toBe(`${comments[0].author.first} `)
+  })
 })
 
 describe('getVerifiedComments', () => {
