@@ -83,6 +83,10 @@ body {
     }
   }
 
+  .clearfix {
+    clear: both;
+  }
+
   .post {
     @include timeline-item
     padding: 20px;

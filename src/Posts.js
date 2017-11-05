@@ -15,6 +15,7 @@ class Posts extends Component {
                 <div className="pull-right">
                   <img src="icon-edit.svg" className="post-edit" />
                 </div>
+
                 <div>
                   <img src="icon-user.svg" className="post-author-image" />
                   <div className="post-meta-info">
@@ -22,6 +23,8 @@ class Posts extends Component {
                     <div className="post-posted">{ post.posted }</div>
                   </div>
                 </div>
+
+                <div className="clearfix"></div>
               </div>
               <div className="post-body">{ post.body }</div>
             </div>
