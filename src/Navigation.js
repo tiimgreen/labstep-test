@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { entities } from './api'
 
+export const getTimelinesForUser = (timelines, userId) => {
+  return timelines.filter(t => {
+    return t.owner_id === userId
+  })
+}
+
 export class Navigation extends Component {
   constructor() {
     super()
@@ -16,9 +22,7 @@ export class Navigation extends Component {
     /* TO-DO: Fix the following code to show the timelines
     that are associated with the above userId
     */
-    const currentUserTimelines = timelines.filter(t => {
-      return t.owner_id === userId
-    })
+   const currentUserTimelines = getTimelinesForUser(timelines, userId)
     /* END TO-DO */
 
     return (

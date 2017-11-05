@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 
+export const sumTimesShared = comments => {
+  return comments.map(c => c.timesShared).reduce((a, b) => a + b, 0)
+}
+
+export const getVerifiedComments = comments => comments.filter(c => c.verified)
+
 class Experiment extends Component {
   constructor(props) {
     super(props)
@@ -54,14 +60,11 @@ class Experiment extends Component {
     3. Append a fullName ( concatenation of first and second name ) field to the author of your verified comments
     4. Style the comment-bar according to specs
     */
-    const verifiedComments = this.state.thread.comments.filter(c => c.verified)
-    const comments = verifiedComments.map(c => {
+    const comments = this.state.thread.comments
+    const verifiedComments = getVerifiedComments(comments).map(c => {
       c.author.fullName = `${c.author.first} ${c.author.second}`
       return c
     })
-    const timesShared = verifiedComments
-      .map(c => c.timesShared)
-      .reduce((a, b) => a + b, 0)
     /* END TO-DO */
 
     return (
@@ -69,7 +72,7 @@ class Experiment extends Component {
         <h2>{ experiment.title }</h2>
 
         <div className="comments">
-          { comments.map(comment => (
+          { verifiedComments.map(comment => (
               <div className="comment" key={comment.id}>
                 <p>{ comment.author.fullName }</p>
                 <p>{ comment.body }</p>
@@ -83,7 +86,7 @@ class Experiment extends Component {
           <button onClick={this.onSubmit}>Send</button>
         </div>
 
-        <p>Times Shared: { timesShared }</p>
+        <p>Times Shared: { sumTimesShared(verifiedComments) }</p>
       </div>
     )
   }
