@@ -42,7 +42,16 @@ body {
     @include timeline-item
   }
 
+  .comment {
+    margin-top: 20px;
+
+    p {
+      margin: 2px;
+    }
+  }
+
   .comment-bar {
+    margin-top: 20px;
     input {
       padding: 12px 17px;
       font-size: 0.8em;
