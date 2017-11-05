@@ -54,11 +54,14 @@ class Experiment extends Component {
     3. Append a fullName ( concatenation of first and second name ) field to the author of your verified comments
     4. Style the comment-bar according to specs
     */
-    const comments = this.state.thread.comments.filter(c => c.verified).map(c => {
+    const verifiedComments = this.state.thread.comments.filter(c => c.verified)
+    const comments = verifiedComments.map(c => {
       c.author.fullName = `${c.author.first} ${c.author.second}`
       return c
     })
-    const timesShared = 1
+    const timesShared = verifiedComments
+      .map(c => c.timesShared)
+      .reduce((a, b) => a + b, 0)
     /* END TO-DO */
 
     return (
@@ -70,7 +73,6 @@ class Experiment extends Component {
               <div className="comment" key={comment.id}>
                 <p>{ comment.author.fullName }</p>
                 <p>{ comment.body }</p>
-                <p>Times shared: { comment.timesShared }</p>
               </div>
             )
           )}
