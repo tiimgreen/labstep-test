@@ -33,7 +33,7 @@ class Experiment extends Component {
       author: this.props.user
     }
     const thread = this.state.thread
-      
+
     const updatedThread = {
       ...thread, comments: [...thread.comments, comment]
     }
@@ -47,18 +47,18 @@ class Experiment extends Component {
   render() {
     const experiment = this.props.experiment
 
-    /* TO-DO: 
+    /* TO-DO:
     1. Write some code to show only verified comments (comments have a verified field of type boolean)
-    2. Write some code to show the total number of times the verified comments 
+    2. Write some code to show the total number of times the verified comments
     have been shared (use the timesShared field to calculate the total)
     3. Append a fullName ( concatenation of first and second name ) field to the author of your verified comments
     4. Style the comment-bar according to specs
     */
-    const comments = this.state.thread.comments
+    const comments = this.state.thread.comments.filter(comment => comment.verified)
     const timesShared = 1
     /* END TO-DO */
 
-    
+
     return (
       <div className='experiment'>
         <h2>{ experiment.title }</h2>
@@ -70,9 +70,9 @@ class Experiment extends Component {
                 <p>{ comment.body }</p>
               </div>
             )
-          )}  
+          )}
         </div>
-        
+
         <div className="comment-bar">
           <input type="text" value={this.state.value} placeholder="Reply with a comment" onChange={this.onInputChange} onKeyPress={this.onKeyPress} />
           <button onClick={this.onSubmit}>Send</button>
