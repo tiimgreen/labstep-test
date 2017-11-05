@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  background-color: #fafafa;
+}
+
+.App {
+  display: flex;
+
+  .navigation, .main, .right {
+    min-height: 100vh;
+    padding: 10px;
+  }
+  
+  .navigation {
+    flex: 1;
+    background-color: white;
+    margin-right: 30px;
+    max-width: 300px;
+    padding-top: 30px;
+    padding-left: 20px;
+  }
+
+  .main {
+    flex: 3;
+    max-width: 700px;
+  }
+
+  .right {
+    flex: 1;
+  }
+}
+
