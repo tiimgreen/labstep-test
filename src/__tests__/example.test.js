@@ -21,7 +21,7 @@ describe('getTimelinesForUser', () => {
     const filteredTimelines = getTimelinesForUser(timelines, 35)
 
     expect(filteredTimelines).toHaveLength(1)
-    expect(filteredTimelines[0].name).toBe('Personal Timeline')
+    expect(filteredTimelines[0].id).toBe(1)
   })
 
   it('should return nothing when user has no timelines', () => {
