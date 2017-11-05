@@ -13,11 +13,11 @@ class Posts extends Component {
             <div className="post" key={post.id}>
               <div className="post-header">
                 <div className="pull-right">
-                  <img src="icon-edit.svg" className="post-edit" />
+                  <img src="icon-edit.svg" className="post-edit" alt="Edit post" />
                 </div>
 
                 <div>
-                  <img src="icon-user.svg" className="post-author-image" />
+                  <img src="icon-user.svg" className="post-author-image" alt="{post.author.fullName}" />
                   <div className="post-meta-info">
                     <span className="post-author">{ post.author.fullName }</span> created a post
                     <div className="post-posted">{ post.posted }</div>
