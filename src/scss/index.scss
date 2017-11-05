@@ -125,4 +125,28 @@ body {
       margin-top: 15px;
     }
   }
+
+  @media(max-width: 800px) {
+    .comment-bar {
+      input {
+        width: 60%;
+      }
+    }
+  }
+
+  @media(max-width: 650px) {
+    .comment-bar {
+      input {
+        width: 50%;
+      }
+    }
+  }
+
+  @media(max-width: 555px) {
+    .comment-bar {
+      input {
+        width: 40%;
+      }
+    }
+  }
 }
