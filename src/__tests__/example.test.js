@@ -1,6 +1,10 @@
 import { entities, thread } from '../api'
 import { getTimelinesForUser } from '../Navigation'
-import { getVerifiedComments, sumTimesShared } from '../Experiment'
+import {
+  getVerifiedComments,
+  sumTimesShared,
+  addFullNameToComments
+} from '../Experiment'
 
 function double(number) {
   return number * 2
@@ -30,6 +34,18 @@ describe('getTimelinesForUser', () => {
     const filteredTimelines = getTimelinesForUser(timelines, 999)
 
     expect(filteredTimelines).toHaveLength(0)
+  })
+})
+
+describe('addFullNameToComments', () => {
+  it('should add the correct full name', () => {
+    const comments = thread.comments
+
+    const commentsWithFullName = addFullNameToComments(comments)
+
+    for (let comment of commentsWithFullName) {
+      expect(comment.author.fullName).toBe(`${comment.author.first} ${comment.author.second}`)
+    }
   })
 })
 

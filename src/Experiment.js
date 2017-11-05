@@ -6,6 +6,13 @@ export const sumTimesShared = comments => {
 
 export const getVerifiedComments = comments => comments.filter(c => c.verified)
 
+export const addFullNameToComments = comments => {
+  return comments.map(c => {
+    c.author.fullName = `${c.author.first} ${c.author.second}`
+    return c
+  })
+}
+
 class Experiment extends Component {
   constructor(props) {
     super(props)
@@ -61,10 +68,7 @@ class Experiment extends Component {
     4. Style the comment-bar according to specs
     */
     const comments = this.state.thread.comments
-    const verifiedComments = getVerifiedComments(comments).map(c => {
-      c.author.fullName = `${c.author.first} ${c.author.second}`
-      return c
-    })
+    const verifiedComments = addFullNameToComments(getVerifiedComments(comments))
     /* END TO-DO */
 
     return (
