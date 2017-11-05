@@ -2,20 +2,32 @@ import React, { Component } from 'react'
 
 class Posts extends Component {
   render() {
-    const posts = this.props.posts
+    const posts = this.props.posts.map(p => {
+      p.author.fullName = `${p.author.first} ${p.author.second}`
+      return p
+    })
 
     return (
       <div className='posts'>
         { posts.map(post => (
             <div className="post" key={post.id}>
-              
-              {/* TO-DO: Write the HTML and CSS to display the post according to specs */}
-
-              {/* END TO-DO */}
+              <div className="post-header">
+                <div className="pull-right">
+                  <img src="icon-edit.svg" className="post-edit" />
+                </div>
+                <div>
+                  <img src="icon-user.svg" className="post-author-image" />
+                  <div className="post-meta-info">
+                    <span className="post-author">{ post.author.fullName }</span> created a post
+                    <div className="post-posted">{ post.posted }</div>
+                  </div>
+                </div>
+              </div>
+              <div className="post-body">{ post.body }</div>
             </div>
           )
         )}
-      </div>  
+      </div>
     )
   }
 }

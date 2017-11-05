@@ -1,3 +1,10 @@
+@mixin timeline-item() {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: #fff;
+  border-radius: $border-radius;
+}
+
 $border-radius: 5px;
 
 body {
@@ -32,9 +39,7 @@ body {
   }
 
   .experiment {
-    background: #fff;
-    padding: 10px 25px;
-    border-radius: $border-radius;
+    @include timeline-item
   }
 
   .comment-bar {
@@ -66,6 +71,49 @@ body {
       &:focus {
         outline: none;
       }
+    }
+  }
+
+  .post {
+    @include timeline-item
+    padding: 20px;
+
+    .pull-right {
+      float: right;
+    }
+
+    .post-header {
+      min-height: 50px;
+    }
+
+    .post-author {
+      font-weight: bold;
+    }
+
+    .post-author-image,
+    .post-meta-info {
+      float: left;
+    }
+
+    .post-meta-info {
+      margin-left: 10px;
+      margin-top: 5px;
+    }
+
+    .post-edit {
+      margin-top: 8px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .post-posted {
+      color: #bbb;
+    }
+
+    .post-body {
+      margin-top: 15px;
     }
   }
 }
