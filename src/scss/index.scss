@@ -1,3 +1,5 @@
+$border-radius: 5px;
+
 body {
   margin: 0;
   background-color: #fafafa;
@@ -10,7 +12,7 @@ body {
     min-height: 100vh;
     padding: 10px;
   }
-  
+
   .navigation {
     flex: 1;
     background-color: white;
@@ -28,5 +30,42 @@ body {
   .right {
     flex: 1;
   }
-}
 
+  .experiment {
+    background: #fff;
+    padding: 10px 25px;
+    border-radius: $border-radius;
+  }
+
+  .comment-bar {
+    input {
+      padding: 12px 17px;
+      font-size: 0.8em;
+      width: 70%;
+      border-radius: $border-radius;
+      background: #f4f2f3;
+      border: 0;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      margin-left: 15px;
+      font-size: 0.8em;
+      padding: 12px;
+      background: #0012ff;
+      color: #fff;
+      border-radius: $border-radius;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

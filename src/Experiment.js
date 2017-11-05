@@ -68,6 +68,7 @@ class Experiment extends Component {
               <div className="comment" key={comment.id}>
                 <p>{ comment.author.fullName }</p>
                 <p>{ comment.body }</p>
+                <p>Times shared: { comment.timesShared }</p>
               </div>
             )
           )}
